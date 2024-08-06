@@ -105,7 +105,6 @@ BEGIN
             ELSE 'Data não fornecida'
         END;
 
-    -- Formatar a hora
     HORA_FORMAT = 
         CASE 
             WHEN ORDENACAO_HORA IS NOT NULL THEN

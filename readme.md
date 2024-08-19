@@ -98,7 +98,7 @@ A função `FORMAT_DATE` formata uma data e uma hora fornecidas em um formato pe
    SELECT FORMAT_DATE('2024-08-06 10:00:00', 'dd mm aaaa', '/', null, null, FALSE, 1) FROM sua_tabela;
    -- Retorno: '06/08/2024'
 
-3. **Somente hora:**
+3. **Somente hora (com milissegundos):**
 
    ```sql
    SELECT FORMAT_DATE('2024-08-06 10:00:00', null, null, 'hh mm ss', ':', TRUE, 1) FROM sua_tabela;

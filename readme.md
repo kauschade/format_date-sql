@@ -81,6 +81,7 @@ A função `FORMAT_DATE` formata uma data e uma hora fornecidas em um formato pe
 - **SEPARADOR_DATA**: Separador para a data (ex: `/`).
 - **ORDENACAO_HORA**: Formato da hora (ex: `hh mm ss`).
 - **SEPARADOR_HORA**: Separador para a hora (ex: `:`).
+- **USAR_MLS**: Usar milissegundos (ex: `TRUE`).
 - **POSICAO_DATA**: Define se a data aparece antes (1) ou depois (2) da hora.
 
 ## Exemplos de Uso
@@ -88,23 +89,23 @@ A função `FORMAT_DATE` formata uma data e uma hora fornecidas em um formato pe
 1. **Formato completo:**
 
    ```sql
-   SELECT FORMAT_DATE('2024-08-06 10:00:00', 'dd mm aaaa', '/', 'hh mm', ':', 1) FROM sua_tabela;
+   SELECT FORMAT_DATE('2024-08-06 10:00:00', 'dd mm aaaa', '/', 'hh mm', ':', FALSE, 1) FROM sua_tabela;
    -- Retorno: '06/08/2024 10:00'
    
 2. **Somente data:**
 
    ```sql
-   SELECT FORMAT_DATE('2024-08-06 10:00:00', 'dd mm aaaa', '/', null, null, 1) FROM sua_tabela;
+   SELECT FORMAT_DATE('2024-08-06 10:00:00', 'dd mm aaaa', '/', null, null, FALSE, 1) FROM sua_tabela;
    -- Retorno: '06/08/2024'
 
 3. **Somente hora:**
 
    ```sql
-   SELECT FORMAT_DATE('2024-08-06 10:00:00', null, null, 'hh mm ss', ':', 1) FROM sua_tabela;
-   -- Retorno: '10:00:00'
+   SELECT FORMAT_DATE('2024-08-06 10:00:00', null, null, 'hh mm ss', ':', TRUE, 1) FROM sua_tabela;
+   -- Retorno: '10:00:00.000'
 
 4. **Hora antes da Data:**
 
    ```sql
-   SELECT FORMAT_DATE('2024-08-06 10:00:00', 'dd mm aaaa', '/', 'hh mm', ':', 2) FROM sua_tabela;
+   SELECT FORMAT_DATE('2024-08-06 10:00:00', 'dd mm aaaa', '/', 'hh mm', ':', FALSE 2) FROM sua_tabela;
     -- Retorno: '10:00 06/08/2024'
